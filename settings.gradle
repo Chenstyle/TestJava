@@ -1,0 +1,4 @@
+include ':ktlib'
+rootProject.name='TestJava'
+include ':app'
+include ':lib'
