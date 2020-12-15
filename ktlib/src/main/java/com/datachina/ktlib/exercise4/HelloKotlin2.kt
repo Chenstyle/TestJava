@@ -1,5 +1,6 @@
 package com.datachina.ktlib.exercise4
 
+import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
 // 委托属性（delegated property）
@@ -18,12 +19,31 @@ class MyDelegate {
     operator fun setValue(thisRef: Any?, property: KProperty<*>, value: String) = println("$thisRef, new value is $value")
 }
 
+class MyDelegate2 : ReadWriteProperty<MyPropertyClass, String> {
+    override fun setValue(thisRef: MyPropertyClass, property: KProperty<*>, value: String) {
+        println("thisRef = $thisRef, property.name = ${property.name}, value = $value")
+    }
+
+    override fun getValue(thisRef: MyPropertyClass, property: KProperty<*>): String {
+        println("thisRef = $thisRef, property.name = ${property.name}")
+        return property.toString()
+    }
+
+}
+
 class MyPropertyClass {
     var str: String by MyDelegate()
+
+    var str2: String by MyDelegate2()
 }
 
 fun main() {
     val myPropertyClass = MyPropertyClass()
     myPropertyClass.str = "hello world"
     println(myPropertyClass.str)
+
+    println("------")
+
+    myPropertyClass.str2 = "Hello World"
+    println(myPropertyClass.str2)
 }
