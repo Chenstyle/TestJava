@@ -6,7 +6,9 @@ package com.datachina.ktlib.exercise9
  */
 
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION, AnnotationTarget.VALUE_PARAMETER,
-        AnnotationTarget.EXPRESSION, AnnotationTarget.CONSTRUCTOR, AnnotationTarget.PROPERTY_SETTER)
+        AnnotationTarget.EXPRESSION, AnnotationTarget.CONSTRUCTOR, AnnotationTarget.PROPERTY_SETTER,
+        AnnotationTarget.PROPERTY_GETTER,
+        AnnotationTarget.FIELD)
 @Retention(AnnotationRetention.SOURCE)
 @MustBeDocumented
 annotation class MyAnnotation

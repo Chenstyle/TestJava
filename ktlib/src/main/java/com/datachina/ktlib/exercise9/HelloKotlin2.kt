@@ -1,4 +1,8 @@
+@file: JvmName("HelloKotlin2")
+
 package com.datachina.ktlib.exercise9
+
+import kotlin.reflect.KClass
 
 /**
  * 注解也可以拥有自己的构造方法，并且构造方法也可以接收参数
@@ -33,3 +37,19 @@ class MyClass5
  * Kotlin编译器会自动将其转换为Java Class
  * 这样，Java代码就可以正常看到注解与参数了。
  */
+
+annotation class MyAnnotation4(val arg1: KClass<*>, val arg2: KClass<out Any>)
+
+@MyAnnotation4(String::class, Int::class)
+class MyClass6
+
+// 注解使用处目标 (use-site target)
+
+/**
+ * 在对类的属性或是主构造方法的参数声明注解时，会存在多个Java元素都可以通过对应的Kotlin元素生成出来，
+ * 因此，在所生成的Java字节码中，就会存在多个可能的位置来生成相应的注解。若想精确指定如何来生成注解，那么可以
+ * 使用注解的使用处目标方式来实现。
+ */
+class MyClass7(@field:MyAnnotation val arg1: String, // 注解 Java field
+               @get: MyAnnotation val arg2: String, // 注解 Java getter
+               @param:MyAnnotation val arg3: String) // 注解 java构造方法参数
