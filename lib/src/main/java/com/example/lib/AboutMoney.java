@@ -8,8 +8,8 @@ public class AboutMoney {
 
     public static void culMoney() {
         HouseLoanCalculate loan = new HouseLoanCalculate();
-        System.out.println("截止到目前已还：" + loan.paidOffMoneyCountForYuan());
-        System.out.println("截止到目前待还：" + loan.residueHouseLoanAmountForYuan());
+        System.out.println("Refund money: " + loan.paidOffMoneyCountForYuan());
+        System.out.println("No refund money: " + loan.residueHouseLoanAmountForYuan());
         WorkTimeCalculator cal = new WorkTimeCalculator(800000);
         System.out.println("salary of hour = " + MyUtil.centConvertForYuan(cal.salaryOfHour()));
         System.out.println("month work hour = " + cal.monthWorkHour());
