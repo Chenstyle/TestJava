@@ -8,7 +8,10 @@ fun main() {
     val daughter: Parent = Daughter()
 
     println(son::class)
+    println(son::class.java)
+    println("----------")
     println(daughter::class)
+    println(daughter::class.java)
 
 }
 
