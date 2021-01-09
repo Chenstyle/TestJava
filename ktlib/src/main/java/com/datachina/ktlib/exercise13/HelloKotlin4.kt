@@ -12,7 +12,7 @@ fun isEven(x: Int) = 0 == x % 2
 fun length(s: String) = s.length
 
 fun main() {
-    val evenLength = myCompose(::isEven, ::length)
+    val evenLength = myCompose<String, Int, Boolean>(::isEven, ::length)
     val strings = listOf("a", "ab", "abc", "abcd", "abcde")
 
     println(strings.filter(evenLength))
