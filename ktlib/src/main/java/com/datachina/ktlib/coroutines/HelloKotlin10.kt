@@ -10,6 +10,10 @@ fun main() {
     test(5, ::test3)
     test2(5, ::test4)
     test5(5, ::test6)
+
+//    test5(5, action = {
+//        println("A")
+//    })
 }
 
 fun test(x: Int, action: () -> Unit) {}
