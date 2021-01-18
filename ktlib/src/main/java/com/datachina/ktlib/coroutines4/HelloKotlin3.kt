@@ -4,9 +4,10 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
 
 /**
+ * 一个线程，多个协程
  * log
- *  查看协程名，在
- *  VM options: -Dkotlinx.coroutines.debug
+ *  查看协程名方式，点击运行项目下拉框，点击Edit Configurations
+ *  在VM options: 粘贴 -Dkotlinx.coroutines.debug
  */
 
 private fun log(logMessage: String) = println("[${Thread.currentThread().name}] $logMessage")
