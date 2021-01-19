@@ -8,6 +8,8 @@ import kotlinx.coroutines.runBlocking
 /**
  *  显示指定协程名
  *
+ *  在VM options: -Dkotlinx.coroutines.debug
+ *
  *  CoroutineName上下文元素可以让我们对协程进行命名，以便能输出可读性较好的日志信息
  */
 private fun log(logMessage: String) = println("[${Thread.currentThread().name}] $logMessage")
