@@ -5,6 +5,9 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
+/**
+ * 桥接阻塞与非阻塞的世界
+ */
 fun main() = runBlocking {
     GlobalScope.launch {
         delay(1000L)

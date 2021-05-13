@@ -2,6 +2,9 @@ package com.datachina.ktlib.coroutines
 
 import kotlin.concurrent.thread
 
+/**
+ * 使用线程
+ */
 fun main() {
     thread {
         Thread.sleep(1000L)
