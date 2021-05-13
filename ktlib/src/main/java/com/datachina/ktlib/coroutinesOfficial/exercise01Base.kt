@@ -114,6 +114,34 @@ private fun lightCoroutine() = runBlocking {
     }
 }
 
+/**
+ * 线程重量证明
+ */
+private fun threadWeight() {
+    var i = 0
+    while (i < 100_000) {
+        i++
+        val thread = Thread(Runnable {
+            Thread.sleep(5000L)
+            println(".")
+        })
+        thread.start()
+    }
+}
+
+/**
+ * 全局协程像守护线程
+ */
+private fun globalCoroutine() = runBlocking {
+    GlobalScope.launch {
+        repeat(1000) {
+            println("I'm sleeping $it ...")
+            delay(500L)
+        }
+    }
+    delay(1300L)
+}
+
 fun main() {
 //    firstCoroutineDemo() // 第一个协程demo
 //    block() // delay函数非阻塞主线程
@@ -122,5 +150,7 @@ fun main() {
 //    structConcurrence() // 结构化并发
 //    useStruct() // 作用构建器，主要是阻塞的runBlocking与挂起的coroutineScope
 //    sus() // 挂起函数
-    lightCoroutine()
+//    lightCoroutine() // 证明协程的轻量
+//    threadWeight() // 线程比较重量级 内存CPU会卡死
+//    globalCoroutine() // 全局协程会在主线程运行完成后直接被退出
 }
